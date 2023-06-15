@@ -31,3 +31,6 @@ Caractéristiques principales
   7. Code clair, bien rédigé, documenté.
   
   8. Maquette d'écran pour chaque interface à réaliser.
+
+
+REALISATION DE ANDRY & DOMINIQUE
