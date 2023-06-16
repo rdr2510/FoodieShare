@@ -33,12 +33,12 @@
          */
         public function get(int $id){
             $this->listUser= $this->loadFile();
-            for ($i=0; $i<count($this->listUser); ++$i){
-                $user= $this->listUser[$i];
+            $user= array_map(function($user) use ($id){
                 if ($user->id == $id){
                     return $user;
                 }
-            }
+            }, $this->listUser);
+            return array_values(array_filter($user))[0];
         }
 
         /**

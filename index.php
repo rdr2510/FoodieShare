@@ -8,8 +8,9 @@
     <?php require_once('./Includes/header.php') ?>
 
     <?php
-        include('./Modeles/users.php');
-        
+        include('./Modeles/repas.php');
+        $r= new Repas('./Data/Repas.json');
+        print_r($r->search('special', 0));        
     ?>
 
     <?php require_once('./Includes/footer.php') ?>
