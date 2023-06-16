@@ -12,8 +12,7 @@
     <?php
     include('./Modeles/users.php');
 
-    $user = new Users('./Data/Etudiants.json');
-    $user->add('RAKOTO', 'LIVA', 'liva', '123456');
+    
 
     ?>
 
