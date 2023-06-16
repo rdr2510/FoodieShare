@@ -1,5 +1,5 @@
-<nav class="navbar fixed-bottom bg-primary">
+<nav class="navbar fixed-bottom bg-primary p-0">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Fixed bottom</a>
+        <span class="text-center w-100 text-light">Fixed bottom</span>
     </div>
 </nav>
