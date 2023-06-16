@@ -36,7 +36,7 @@
         }
 
         /**
-         * lister un repas
+         * Charger un repas
          * @param {int} identifiant unique
          * @return {Array Associative}
          */
@@ -79,8 +79,38 @@
             return $listPlat;
         }
 
-        public function filtrePrix(float $min, float $max){
-            
+        /**
+         * critere de filtration de repas par prix
+         * @param {float} min - prix minimum
+         * @param {float} max - prix maximum
+         * @return {Array Associative}
+         */
+        public function filtrePrix(float $min=0, float $max=0){
+            $this->listRepas= $this->loadFile();
+            $listPlat= [];
+            for ($i=0; $i<count($this->listRepas); ++$i){
+                if ($min <= $this->listRepas[$i]->prix && $this->listRepas[$i]->prix <= $max){
+                    array_push($listPlat, $this->listRepas[$i]);
+                }
+            }
+            return $listPlat;
+        }
+
+        /**
+         * critere de filtration de repas par localisation
+         * @param {float} min - distance minimum
+         * @param {float} max - distance maximum
+         * @return {Array Associative}
+         */
+        public function filtreLocalisation(float $min=0, float $max=0){
+            $this->listRepas= $this->loadFile();
+            $listPlat= [];
+            for ($i=0; $i<count($this->listRepas); ++$i){
+                if ($min <= $this->listRepas[$i]->localisation && $this->listRepas[$i]->localisation <= $max){
+                    array_push($listPlat, $this->listRepas[$i]);
+                }
+            }
+            return $listPlat;
         }
     }
 

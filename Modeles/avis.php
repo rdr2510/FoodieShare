@@ -1,7 +1,7 @@
 <?php
     include './Modeles/json.php';
 
-    class Repas extends Json{        
+    class Avis extends Json{        
         private $listAvis= [];
 
         public function __construct($FileName){
@@ -42,7 +42,7 @@
         }
 
         /**
-         * lister un avis
+         * Afficher un avis
          * @param {int} identifiant unique
          * @return {Array Associative}
          */
@@ -53,7 +53,7 @@
                     return $avis;
                 }
             }, $this->listAvis);
-            return array_values($avis)[0];
+            return array_values(array_filter($avis))[0];
         }
     }
 

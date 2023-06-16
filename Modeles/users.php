@@ -1,7 +1,7 @@
 <?php
     include './Modeles/json.php';
 
-    class Etudiants extends Json{        
+    class Users extends Json{        
         private $listUser= [];
 
         public function __construct($FileName){
@@ -61,7 +61,7 @@
         }
 
         /**
-         * Verifier le nom de 'utilisateur et le mot de passe
+         * Verifier le nom de l'utilisateur et le mot de passe
          * @param {string} username - nom d'utilisateur de l'etudiant
          * @param {string} password - mot de passe de l'etudiant
          * @return {int} identification unique
