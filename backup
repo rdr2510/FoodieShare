@@ -1,0 +1,11 @@
+{
+		"name": "SERVEUR FTP CEGEP",
+		"host": "cstjean.webeex.com",
+		"port": 21,
+		"type": "ftp",
+		"username": "u6218913",
+		"password": "*Ya726pk2",
+		"path": "/",
+		"autosave": true,
+		"confirm": true
+	}
