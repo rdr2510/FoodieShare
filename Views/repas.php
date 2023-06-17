@@ -29,7 +29,7 @@
                 <a href="#" class="btn btn-secondary d-flex align-items-center justify-content-end">Detail<span class="material-symbols-rounded">read_more</span></a>
             </div> ';
     }
-
+ 
     echo '</div>';
 ?>
 
