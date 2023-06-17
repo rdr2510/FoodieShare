@@ -12,24 +12,35 @@
             <span class="navbar-toggler-icon text-light"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse my-0" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link text-light d-flex align-items-centrer" aria-current="page" href="#"><span class="material-symbols-rounded" style="margin-right: 10px">home</span>ACCUEIL</a>
+                    <a class="nav-link text-light d-flex align-items-centrer px-4" aria-current="page" href="#"><span class="material-symbols-rounded" style="margin-right: 8px">home</span>ACCUEIL</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light d-flex align-items-centrer" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"><span style="margin-right: 10px" class="material-symbols-rounded">manage_search</span>RECHERCHE</a>
-                </li>
+                <div class="dropdown">
+                    <a class="nav-link text-light dropdown-toggle d-flex align-items-center px-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="material-symbols-rounded" style="margin-right: 8px">fastfood</span>LES REPAS
+                    </a>
+                    <ul class="dropdown-menu bg-primary">
+                        <li><a class="dropdown-item text-light d-flex align-items-centrer px-4" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"><span style="margin-right: 8px" class="material-symbols-rounded">manage_search</span>Recherche & filtre</a></li>
+                        <li><a class="dropdown-item text-light d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span class="material-symbols-rounded" style="margin-right: 10px">add_circle</span>Ajouter Nouveau</a></li>
+                    </ul>
+                </div>
             </ul>
-            <div class="dropdown">
-                <a class="btn btn-primary dropdown-toggle d-flex align-items-center py-1 mx-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown link <span class="px-2 material-symbols-rounded fs-2">account_circle</span>
+            
+            <div id="user-connection" class="d-flex">
+                <button class="btn btn-primary btn-outline-light rounded-0 m-0 w-xl-100 rounded-start">SE CONNECTER</button>
+                <button class="btn btn-light rounded-0 m-0 w-xl-100 rounded-end fw-bold">NOUVEAU COMPTE</button>
+            </div>
+
+            <div class="dropdown d-none" style="margin-right: 20px;">
+                <a class="nav-link text-light dropdown-toggle d-flex align-items-center py-1 mx-0 px-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Connecter<span class="px-2 material-symbols-rounded fs-2">account_circle</span>
                 </a>
                 <ul class="dropdown-menu bg-primary">
-                    <li><a class="dropdown-item text-light" href="#">Action</a></li>
-                    <li><a class="dropdown-item text-light" href="#">Another action</a></li>
+                    <li><a class="dropdown-item text-light d-flex align-items-center" href="#"><span class="material-symbols-rounded" style="margin-right: 10px">account_box</span>Profil</a></li>
                     <li><hr class="dropdown-divider text-light"></li>
-                    <li><a class="dropdown-item text-light" href="#">Something else here</a></li>
+                    <li><a class="dropdown-item text-light d-flex align-items-center" href="#"><span class="material-symbols-rounded" style="margin-right: 10px">exit_to_app</span>DéConnecter</a></li>
                 </ul>
             </div>
         </div>

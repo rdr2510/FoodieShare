@@ -7,9 +7,9 @@
 </head>
 
 <body>
-    <?php require_once('./Includes/header.php') ?>
-    
-    <?php include('./Views/repas.php') ?>
+    <?php require_once('./Includes/header.php') ?>    
+    <?php include('./Views/login.php') ?>
+    <?php include('./Views/addRepas.php') ?>
     <?php require_once('./Includes/footer.php') ?>
 </body>
 

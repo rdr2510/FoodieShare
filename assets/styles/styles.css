@@ -1,3 +1,36 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
 .nav-link:hover, .dropdown-item:hover{
     background-color: black;
+}
+#user-connection>button:hover{
+    background-color: black;
+    color: white;
+}
+#login{
+    -webkit-box-shadow: 30px 30px 27px 2px rgba(0,0,0,0.5);
+    -moz-box-shadow: 30px 30px 27px 2px rgba(0,0,0,0.5);
+    box-shadow: 30px 30px 27px 2px rgba(0,0,0,0.5);
+    border-radius: 20px;
+}
+@media (min-width: 992px) {
+    #login-left{
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    #login-right{
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+}
+
+@media (max-width: 992px) { 
+    #login-right{
+        border-radius: 20px;
+    }
 }
