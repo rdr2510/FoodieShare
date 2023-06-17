@@ -34,3 +34,11 @@ html, body{
         border-radius: 20px;
     }
 }
+
+#carouselExampleFade{
+    height: 300px;
+    margin: 15px;
+}
+.carousel-item>img{
+    height: 300px;
+}

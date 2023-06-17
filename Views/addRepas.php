@@ -11,7 +11,7 @@
                         <span class="input-group-text material-symbols-rounded text-primary">lunch_dining</span>
                         <input type="text" class="form-control" placeholder="Nom du plat" name="nom">
                     </div>
-                    <div class="d-flex gap-4">
+                    <div class="d-flex gap-lg-4 flex-column flex-lg-row">
                         <div class="input-group mb-3">
                             <span class="input-group-text material-symbols-rounded text-primary">monetization_on</span>
                             <input type="number" class="form-control" step="any" aria-label="Prix unitaire du plat" placeholder="Prix Unitaire" name="prix">

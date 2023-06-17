@@ -22,6 +22,7 @@
                         <span class="material-symbols-rounded" style="margin-right: 8px">fastfood</span>LES REPAS
                     </a>
                     <ul class="dropdown-menu bg-primary">
+                        <li><a class="dropdown-item text-light d-flex align-items-centrer px-4" href="../index.php?menu=REPAS"><span style="margin-right: 8px" class="material-symbols-rounded">lunch_dining</span>Les plats</a></li>
                         <li><a class="dropdown-item text-light d-flex align-items-centrer px-4" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"><span style="margin-right: 8px" class="material-symbols-rounded">manage_search</span>Recherche & filtre</a></li>
                         <li><a class="dropdown-item text-light d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span class="material-symbols-rounded" style="margin-right: 10px">add_circle</span>Ajouter Nouveau</a></li>
                     </ul>
@@ -29,7 +30,7 @@
             </ul>
             
             <div id="user-connection" class="d-flex">
-                <button class="btn btn-primary btn-outline-light rounded-0 m-0 w-xl-100 rounded-start">SE CONNECTER</button>
+                <a class="btn btn-primary btn-outline-light rounded-0 m-0 w-xl-100 rounded-start" href="../index.php?menu=LOGIN">SE CONNECTER</a>
                 <button class="btn btn-light rounded-0 m-0 w-xl-100 rounded-end fw-bold">NOUVEAU COMPTE</button>
             </div>
 
