@@ -42,6 +42,27 @@
         }
 
         /**
+         * Teste l'existence d'un utilisateur dans la base de donnée
+         * @param {string} nom - Nom de l'utilisateur
+         * @param {string} prenom - Prenom de l'utlisateur
+         * @param {string} username - nom d'utilisateur
+         * @return {Boolean}
+         */
+        public function isExist(string $nom, string $prenom, string $username){
+            $this->listUser= $this->loadFile();
+            for($i=0; $i<count($this->listUser); ++$i){
+                $user= $this->listUser[$i];
+                if (strtolower($user->nom) == strtolower($nom) && strtolower($user->prenom) == strtolower($prenom)){
+                    return true;
+                    break;
+                } else if (strtolower($user->username) == strtolower($username)){
+                    return true;
+                    break;
+                }
+            }
+        }
+        
+        /**
          * Modifier un etudiant
          * @param {int} id - identifiant unique
          * @param {string} nom - nom de l'etudiant

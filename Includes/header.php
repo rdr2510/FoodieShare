@@ -59,7 +59,7 @@
                         <?= $user->prenom . ' ' . strtoupper($user->nom) ?><span class="px-2 material-symbols-rounded fs-2">account_circle</span>
                     </a>
                     <ul class="dropdown-menu bg-primary">
-                        <li><a class="dropdown-item text-light d-flex align-items-center" href="#"><span class="material-symbols-rounded" style="margin-right: 10px">account_box</span>Profil</a></li>
+                        <li><a class="dropdown-item text-light d-flex align-items-center" href=<?= './index?menu=VIEW_PROFIL&userId='.$user->id?>><span class="material-symbols-rounded" style="margin-right: 10px">account_box</span>Profil</a></li>
                         <li><hr class="dropdown-divider text-light"></li>
                         <li><button type="button" class="dropdown-item text-light d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#logout"><span class="material-symbols-rounded" style="margin-right: 10px">exit_to_app</span>DéConnecter</button></li>
                     </ul>
