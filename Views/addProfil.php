@@ -21,9 +21,9 @@
                     <input id="input" type="password" class="form-control" placeholder="Mot de passe" name="password">
                 </div>
                 <div class="d-flex justify-content-evenly w-100" style="margin-top: 35px;">
-                    <button type="button" class="btn btn-secondary btn-outline-light d-flex align-items-center" data-bs-dismiss="modal"><span class="material-symbols-rounded" style="margin-right: 10px;">close</span>Annuler</button>
+                    <a type="button" class="btn btn-secondary btn-outline-light d-flex align-items-center" href="./index?menu=LIST_REPAS"><span class="material-symbols-rounded" style="margin-right: 10px;">close</span>Annuler</a>
                     <button type="button" class="btn btn-primary btn-outline-light d-flex align-items-center"><span class="material-symbols-rounded" style="margin-right: 10px;">cloud_upload</span>Enregistrer</button>
                 </div>
             </div>
-        </div>
+    </div>
 </div>

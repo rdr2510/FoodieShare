@@ -22,6 +22,9 @@
                     case 'NEW_PROFIL':
                         include('./Views/addProfil.php');                    
                         break;
+                    case 'LOGIN_FAILED':
+                        include('./Views/loginFailed.php');                    
+                        break;
                 }
             }
         } else if ($_SERVER["REQUEST_METHOD"] == "POST") {

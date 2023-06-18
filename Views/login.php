@@ -33,6 +33,9 @@
                 $sessions->set($user);
                 echo "<script type='text/javascript'>window.top.location='./index.php?menu=LIST_REPAS';</script>"; 
                 exit;
+            } else {
+                echo "<script type='text/javascript'>window.top.location='./index.php?menu=LOGIN_FAILED';</script>"; 
+                exit;
             }
         }
     }

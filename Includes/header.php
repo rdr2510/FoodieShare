@@ -2,6 +2,14 @@
     require_once('./Modeles/sessions.php');
     $sessions= new Sessions('./Datas/Sessions.json');
     $user;
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        if (isset($_GET['action'])){
+            if ($_GET['action']=='DECONNECTER'){
+                $sessions->clear();
+            }
+        }
+    }
+
     if ($sessions->isActive()){
         $user= $sessions->get();
     }
@@ -33,13 +41,14 @@
                     <ul class="dropdown-menu bg-primary">
                         <li><a class="dropdown-item text-light d-flex align-items-centrer px-4" href="../index.php?menu=LIST_REPAS"><span style="margin-right: 8px" class="material-symbols-rounded">lunch_dining</span>Les plats</a></li>
                         <li><a class="dropdown-item text-light d-flex align-items-centrer px-4" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"><span style="margin-right: 8px" class="material-symbols-rounded">manage_search</span>Recherche & filtre</a></li>
-                        <li><a class="dropdown-item text-light d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span class="material-symbols-rounded" style="margin-right: 10px">add_circle</span>Ajouter Nouveau</a></li>
+                        <?php if (isset($user)){ ?>
+                            <li><a class="dropdown-item text-light d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#add-repas"><span class="material-symbols-rounded" style="margin-right: 10px">add_circle</span>Ajouter Nouveau</a></li>
+                        <?php } ?>
                     </ul>
                 </div>
             </ul>
             
             <?php if (!isset($user)){ ?>
-                <?php print_r($user);?>
                 <div id="user-connection" class="d-flex justify-content-center">
                     <a class="btn btn-primary btn-outline-light rounded-0 m-0 w-xl-100 rounded-start" href="../index.php?menu=LOGIN">SE CONNECTER</a>
                     <a class="btn btn-light rounded-0 m-0 w-xl-100 rounded-end fw-bold" href="../index.php?menu=NEW_PROFIL">NOUVEAU COMPTE</a>
@@ -52,7 +61,7 @@
                     <ul class="dropdown-menu bg-primary">
                         <li><a class="dropdown-item text-light d-flex align-items-center" href="#"><span class="material-symbols-rounded" style="margin-right: 10px">account_box</span>Profil</a></li>
                         <li><hr class="dropdown-divider text-light"></li>
-                        <li><button type="button" class="dropdown-item text-light d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span class="material-symbols-rounded" style="margin-right: 10px">exit_to_app</span>DéConnecter</button></li>
+                        <li><button type="button" class="dropdown-item text-light d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#logout"><span class="material-symbols-rounded" style="margin-right: 10px">exit_to_app</span>DéConnecter</button></li>
                     </ul>
                 </div>
             <?php } ?>
@@ -60,7 +69,7 @@
     </div>
 </nav>
 
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -72,7 +81,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary d-flex align-items-center" data-bs-dismiss="modal"><span class="material-symbols-rounded" style="margin-right: 5px;">cancel</span>Annuler</button>
-                <a type="button" class="btn btn-primary d-flex align-items-center">DéConnecter <span class="material-symbols-rounded" style="margin-left: 5px;">output</span></a>
+                <a type="button" class="btn btn-primary d-flex align-items-center" href="./index?menu=LIST_REPAS&action=DECONNECTER">DéConnecter<span class="material-symbols-rounded" style="margin-left: 5px;">output</span></a>
             </div>
         </div>
     </div>

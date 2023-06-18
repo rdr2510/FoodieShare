@@ -20,7 +20,7 @@
 
         public function isActive(){
             $user= $this->loadFile();
-            if (isset($user)){
+            if (isset($user) && !empty($user)){
                 if ($user->id >0){
                     return true;
                 }
