@@ -6,8 +6,8 @@
         </div>
 
         <div class="d-flex flex-column justify-content-start align-items-start p-4">
-            <p class="fs-3 text-success w-100 text-center mb-4 fw-bold">Création de nouveau profil avec succées.</p>
-            <p class="fs-5 text-center w-100">Veuillez connecter maintenant.</p>
+            <p class="fs-3 text-success w-100 text-center mb-4 fw-bold"><?= $titre?></p>
+            <p class="fs-5 text-center w-100"><?= $resultat?></p>
         </div>
 
         <div class="d-flex justify-content-center w-100 mb-4">

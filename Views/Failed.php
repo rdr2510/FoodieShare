@@ -6,9 +6,9 @@
         </div>
 
         <div class="d-flex flex-column justify-content-start align-items-start p-4">
-            <p class="fs-3 text-danger w-100 text-center mb-4 fw-bold">Oops! Échec de la création de nouveau profil.</p>
-            <p class="fs-5 text-center w-100">Erreur de création de nouveau profil, Il se peut que les informations que vous avez entrées existe déja dans notre base de donnée.</p>
-            <p class="fs-5 text-center w-100">Veuillez réessayer s'il vous plaît...</p>
+            <p class="fs-3 text-danger w-100 text-center mb-4 fw-bold"><?= $titre?></p>
+            <p class="fs-5 text-center w-100"><?= $description?></p>
+            <p class="fs-5 text-center w-100"><?= $resultat?></p>
         </div>
 
         <div class="d-flex justify-content-center w-100 mb-4">

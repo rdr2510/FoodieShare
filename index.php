@@ -24,7 +24,10 @@
                         include('./Views/Profil.php');                    
                         break;
                     case 'LOGIN_FAILED':
-                        include('./Views/loginFailed.php');                    
+                        $titre= 'Oops! Échec de la connexion.';
+                        $description= 'Erreur d\'authentification, votre nom d\'utilisateur et/ou mot de passe est incorrect.';
+                        $resultat= 'Veuillez réessayer s\'il vous plaît...';
+                        include('./Views/Failed.php');                              
                         break;
                     case 'VIEW_PROFIL':
                         require_once('./Modeles/users.php');
@@ -38,10 +41,15 @@
                         include('./Views/Profil.php');                    
                         break;
                     case 'PROFIL_SUCCESS':
-                        include('./Views/profilSuccess.php');                    
+                        $titre= 'Création de nouveau profil avec succées.';
+                        $resultat= 'Veuillez connecter maintenant.';
+                        include('./Views/Success.php');                    
                         break;
                     case 'PROFIL_FAILED':
-                        include('./Views/profilFailed.php');                    
+                        $titre= 'Oops! Échec de la création de nouveau profil.';
+                        $description= 'Erreur de création de nouveau profil, Il se peut que les informations que vous avez entrées existe déja dans notre base de donnée.';
+                        $resultat= 'Veuillez réessayer s\'il vous plaît...';
+                        include('./Views/Failed.php');                    
                         break;
                 }
             }
