@@ -3,8 +3,8 @@
     class Json{
         private $jsonFile= '';
 
-        protected function __construct($jsonFile){
-            $this->jsonFile= $jsonFile;
+        protected function __construct($FileName){
+            $this->jsonFile= $FileName;
         }
 
         /**
@@ -28,5 +28,10 @@
             $j= json_encode($listData);
             file_put_contents($this->jsonFile, $j);
         }
+
+        protected function clearContent(){
+            file_put_contents($this->jsonFile, '');
+        }
+
     }
 ?>

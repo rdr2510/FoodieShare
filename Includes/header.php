@@ -1,3 +1,12 @@
+<?php
+    require_once('./Modeles/sessions.php');
+    $sessions= new Sessions('./Datas/Sessions.json');
+    $user;
+    if ($sessions->isActive()){
+        $user= $sessions->get();
+    }
+?>
+
 <nav class="navbar navbar-expand-lg sticky-top bg-primary p-0">
     <div class="container-fluid">
         <a class="navbar-brand text-light fw-bold" href="#">
@@ -22,28 +31,49 @@
                         <span class="material-symbols-rounded" style="margin-right: 8px">fastfood</span>LES REPAS
                     </a>
                     <ul class="dropdown-menu bg-primary">
-                        <li><a class="dropdown-item text-light d-flex align-items-centrer px-4" href="../index.php?menu=REPAS"><span style="margin-right: 8px" class="material-symbols-rounded">lunch_dining</span>Les plats</a></li>
+                        <li><a class="dropdown-item text-light d-flex align-items-centrer px-4" href="../index.php?menu=LIST_REPAS"><span style="margin-right: 8px" class="material-symbols-rounded">lunch_dining</span>Les plats</a></li>
                         <li><a class="dropdown-item text-light d-flex align-items-centrer px-4" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"><span style="margin-right: 8px" class="material-symbols-rounded">manage_search</span>Recherche & filtre</a></li>
                         <li><a class="dropdown-item text-light d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span class="material-symbols-rounded" style="margin-right: 10px">add_circle</span>Ajouter Nouveau</a></li>
                     </ul>
                 </div>
             </ul>
             
-            <div id="user-connection" class="d-flex">
-                <a class="btn btn-primary btn-outline-light rounded-0 m-0 w-xl-100 rounded-start" href="../index.php?menu=LOGIN">SE CONNECTER</a>
-                <button class="btn btn-light rounded-0 m-0 w-xl-100 rounded-end fw-bold">NOUVEAU COMPTE</button>
-            </div>
-
-            <div class="dropdown d-none" style="margin-right: 20px;">
-                <a class="nav-link text-light dropdown-toggle d-flex align-items-center py-1 mx-0 px-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Connecter<span class="px-2 material-symbols-rounded fs-2">account_circle</span>
-                </a>
-                <ul class="dropdown-menu bg-primary">
-                    <li><a class="dropdown-item text-light d-flex align-items-center" href="#"><span class="material-symbols-rounded" style="margin-right: 10px">account_box</span>Profil</a></li>
-                    <li><hr class="dropdown-divider text-light"></li>
-                    <li><a class="dropdown-item text-light d-flex align-items-center" href="#"><span class="material-symbols-rounded" style="margin-right: 10px">exit_to_app</span>DéConnecter</a></li>
-                </ul>
-            </div>
+            <?php if (!isset($user)){ ?>
+                <?php print_r($user);?>
+                <div id="user-connection" class="d-flex justify-content-center">
+                    <a class="btn btn-primary btn-outline-light rounded-0 m-0 w-xl-100 rounded-start" href="../index.php?menu=LOGIN">SE CONNECTER</a>
+                    <a class="btn btn-light rounded-0 m-0 w-xl-100 rounded-end fw-bold" href="../index.php?menu=NEW_PROFIL">NOUVEAU COMPTE</a>
+                </div>
+            <?php } else {?>
+                <div class="dropdown" style="margin-right: 20px;">
+                    <a class="nav-link text-light dropdown-toggle d-flex align-items-center py-1 mx-0 px-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <?= $user->prenom . ' ' . strtoupper($user->nom) ?><span class="px-2 material-symbols-rounded fs-2">account_circle</span>
+                    </a>
+                    <ul class="dropdown-menu bg-primary">
+                        <li><a class="dropdown-item text-light d-flex align-items-center" href="#"><span class="material-symbols-rounded" style="margin-right: 10px">account_box</span>Profil</a></li>
+                        <li><hr class="dropdown-divider text-light"></li>
+                        <li><button type="button" class="dropdown-item text-light d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span class="material-symbols-rounded" style="margin-right: 10px">exit_to_app</span>DéConnecter</button></li>
+                    </ul>
+                </div>
+            <?php } ?>
         </div>
     </div>
 </nav>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h1 class="modal-title fs-5 text-white d-flex align-items-center" id="staticBackdropLabel"><span class="material-symbols-rounded" style="margin-right: 5px;">person_off</span>DECONNEXION</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Voulez-vous vraiment déconnecter ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary d-flex align-items-center" data-bs-dismiss="modal"><span class="material-symbols-rounded" style="margin-right: 5px;">cancel</span>Annuler</button>
+                <a type="button" class="btn btn-primary d-flex align-items-center">DéConnecter <span class="material-symbols-rounded" style="margin-left: 5px;">output</span></a>
+            </div>
+        </div>
+    </div>
+</div>

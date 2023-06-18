@@ -1,5 +1,5 @@
 <?php
-    include './Modeles/json.php';
+    require_once './Modeles/json.php';
 
     class Repas extends Json{        
         private $listRepas= [];
@@ -56,11 +56,11 @@
          * @param {int} critere - critere de recherche (0: toute les colonne, 1: par nom du plat seulement)
          * @return {Array Associative}
          */
-        public function search(string $word, int $critere= 0){
-            $this->listRepas= $this->loadFile();
+        public function search($listRepas, string $word, int $critere= 0){
+            //$this->listRepas= $this->loadFile();
             $listPlat= [];
-            for ($i=0; $i<count($this->listRepas); ++$i){
-                foreach($this->listRepas[$i] as $key => $value){
+            for ($i=0; $i<count($listRepas); ++$i){
+                foreach($listRepas[$i] as $key => $value){
                     if ($critere==1)
                         if ($key=='nom')
                             $n=0;
@@ -70,7 +70,7 @@
 
                     if ($n==0){
                         if (str_contains(strtolower($value), strtolower($word))){
-                            array_push($listPlat, $this->listRepas[$i]);
+                            array_push($listPlat, $listRepas[$i]);
                             break;       
                         }
                     }
@@ -85,12 +85,12 @@
          * @param {float} max - prix maximum
          * @return {Array Associative}
          */
-        public function filtrePrix(float $min=0, float $max=0){
-            $this->listRepas= $this->loadFile();
+        public function filtrePrix($listRepas, float $min=0, float $max=0){
+            //$this->listRepas= $this->loadFile();
             $listPlat= [];
-            for ($i=0; $i<count($this->listRepas); ++$i){
-                if ($min <= $this->listRepas[$i]->prix && $this->listRepas[$i]->prix <= $max){
-                    array_push($listPlat, $this->listRepas[$i]);
+            for ($i=0; $i<count($listRepas); ++$i){
+                if ($min <= $listRepas[$i]->prix && $listRepas[$i]->prix <= $max){
+                    array_push($listPlat, $listRepas[$i]);
                 }
             }
             return $listPlat;
@@ -102,12 +102,12 @@
          * @param {float} max - distance maximum
          * @return {Array Associative}
          */
-        public function filtreLocalisation(float $min=0, float $max=0){
-            $this->listRepas= $this->loadFile();
+        public function filtreLocalisation($listRepas, float $min=0, float $max=0){
+            //$this->listRepas= $this->loadFile();
             $listPlat= [];
-            for ($i=0; $i<count($this->listRepas); ++$i){
-                if ($min <= $this->listRepas[$i]->localisation && $this->listRepas[$i]->localisation <= $max){
-                    array_push($listPlat, $this->listRepas[$i]);
+            for ($i=0; $i<count($listRepas); ++$i){
+                if ($min <= $listRepas[$i]->localisation && $listRepas[$i]->localisation <= $max){
+                    array_push($listPlat, $listRepas[$i]);
                 }
             }
             return $listPlat;

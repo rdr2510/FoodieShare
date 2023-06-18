@@ -7,23 +7,23 @@
             </div>
             <div class="modal-body d-flex justify-content-center">
                 <div class="w-75">
-                    <div class="input-group mb-3">
+                    <div id="input" class="input-group mb-3 rounded">
                         <span class="input-group-text material-symbols-rounded text-primary">lunch_dining</span>
                         <input type="text" class="form-control" placeholder="Nom du plat" name="nom">
                     </div>
                     <div class="d-flex gap-lg-4 flex-column flex-lg-row">
-                        <div class="input-group mb-3">
+                        <div id="input" class="input-group mb-3 rounded border-primary">
                             <span class="input-group-text material-symbols-rounded text-primary">monetization_on</span>
                             <input type="number" class="form-control" step="any" aria-label="Prix unitaire du plat" placeholder="Prix Unitaire" name="prix">
                             <span class="input-group-text fw-bold">$</span>
                         </div>
-                        <div class="input-group mb-3">
+                        <div id="input" class="input-group mb-3 rounded border-primary">
                             <span class="input-group-text material-symbols-rounded text-primary">distance</span>
                             <input type="number" class="form-control" step="any" aria-label="Prix unitaire du plat" placeholder="Localisation" name="localisation">
                             <span class="input-group-text fw-bold">Km</span>
                         </div>
                     </div>
-                    <div class="input-group mb-3">
+                    <div id="input" class="input-group mb-3 rounded border-primary">
                         <span class="input-group-text material-symbols-rounded text-primary">post</span>
                         <textarea class="form-control" name="description" rows="3" placeholder="Description"></textarea>
                     </div>

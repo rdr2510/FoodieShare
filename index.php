@@ -16,14 +16,32 @@
                     case 'LOGIN':
                         include('./Views/login.php');                    
                         break;
-                    case 'REPAS':
-                        include('./Views/repas.php');                    
+                    case 'LIST_REPAS':
+                        include('./Views/listRepas.php');                    
+                        break;
+                    case 'NEW_PROFIL':
+                        include('./Views/addProfil.php');                    
                         break;
                 }
             }
-        }
+        } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['menu'])){
+                switch($_POST['menu']){
+                    case 'LOGIN':
+                        include('./Views/login.php');                    
+                        break;
+                    case 'LIST_REPAS':
+                        include('./Views/listRepas.php');                    
+                        break;
+                    case 'NEW_PROFIL':
+                        include('./Views/addProfil.php');                    
+                        break;
+                }
+            }
+        }           
     ?>    
-    <?php include('./Views/addRepas.php') ?>
+
+    <?php include_once('./Views/addRepas.php') ?>
     
     <?php require_once('./Includes/footer.php') ?>
 </body>

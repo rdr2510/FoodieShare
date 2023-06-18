@@ -1,5 +1,5 @@
 <?php
-    include './Modeles/json.php';
+    require_once './Modeles/json.php';
 
     class Avis extends Json{        
         private $listAvis= [];
