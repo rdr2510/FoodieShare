@@ -49,6 +49,21 @@
             }, $this->listRepas);
             return array_values(array_filter($plat))[0];
         }
+        
+        /**
+         * Supprimer un repas
+         * @param {int} identifiant unique
+         */
+        public function delete(int $id){
+            $this->listRepas= $this->loadFile();
+            for ($i=0; $i<count($this->listRepas); ++$i){
+                if ($this->listRepas[$i]->id == $id){
+                    array_splice($this->listRepas, $i, 1);
+                    break;
+                }
+            };
+            $this->saveFile($this->listRepas);
+        }
 
         /**
          * recherche un repas

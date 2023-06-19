@@ -42,7 +42,7 @@
                         <li><a class="dropdown-item text-light d-flex align-items-centrer px-4" href="../index.php?menu=LIST_REPAS"><span style="margin-right: 8px" class="material-symbols-rounded">lunch_dining</span>Les plats</a></li>
                         <li><a class="dropdown-item text-light d-flex align-items-centrer px-4" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"><span style="margin-right: 8px" class="material-symbols-rounded">manage_search</span>Recherche & filtre</a></li>
                         <?php if (isset($user)){ ?>
-                            <li><a class="dropdown-item text-light d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#add-repas"><span class="material-symbols-rounded" style="margin-right: 10px">add_circle</span>Ajouter Nouveau</a></li>
+                            <li><a class="dropdown-item text-light d-flex align-items-center" href="../index.php?menu=NEW_REPAS"><span class="material-symbols-rounded" style="margin-right: 10px">add_circle</span>Ajouter Nouveau</a></li>
                         <?php } ?>
                     </ul>
                 </div>
@@ -69,7 +69,7 @@
     </div>
 </nav>
 
-<div class="modal fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">

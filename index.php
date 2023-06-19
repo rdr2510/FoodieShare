@@ -17,7 +17,47 @@
                         include('./Views/login.php');                    
                         break;
                     case 'LIST_REPAS':
+                        if (isset($_GET['action'])){
+                            $action= $_GET['action'];
+                            switch($action){
+                                case 'SUPPRIMER':
+                                    if (isset($_GET['platId'])){
+                                        $platId= $_GET['platId'];
+                                    }
+                                    break;
+                                case 'RECHERCHE':
+                                    if (isset($_GET['recherche']) && isset($_GET['critere'])){
+                                        $recherche= $_GET['recherche'];
+                                        $critere= (int)$_GET['critere'];
+                                    }
+                                    if (isset($_GET['prix-min']) && isset($_GET['prix-max'])){
+                                        $prixMin= (float)$_GET['prix-min'];
+                                        $prixMax= (float)$_GET['prix-max'];
+                                    }
+                                    if (isset($_GET['distance-min']) && isset($_GET['distance-max'])){
+                                        $distanceMin= (float)$_GET['distance-min'];
+                                        $distanceMax= (float)$_GET['distance-max'];
+                                    }
+                                    break;
+                            }
+                        }
+                        
                         include('./Views/listRepas.php');                    
+                        break;
+                    case 'NEW_REPAS':
+                        include('./Views/repas.php');                    
+                        break;
+                    case 'ADD_REPAS_SUCCESS':
+                        $titre= 'Création de nouveau plat avec succées.';
+                        $resultat= 'Veuillez rétourner sur la liste.';
+                        $url= "../index.php?menu=LIST_REPAS";
+                        include('./Views/Success.php');                    
+                        break;
+                    case 'DELETE_REPAS_SUCCESS':
+                        $titre= 'Suppression du plat avec succées.';
+                        $resultat= 'Veuillez rétourner sur la liste.';
+                        $url= "../index.php?menu=LIST_REPAS";
+                        include('./Views/Success.php');                    
                         break;
                     case 'NEW_PROFIL':
                         $_POST['action']= 'ADD';
@@ -43,6 +83,7 @@
                     case 'PROFIL_SUCCESS':
                         $titre= 'Création de nouveau profil avec succées.';
                         $resultat= 'Veuillez connecter maintenant.';
+                        $url= '../index.php?menu=LOGIN';
                         include('./Views/Success.php');                    
                         break;
                     case 'PROFIL_FAILED':
@@ -65,12 +106,13 @@
                     case 'NEW_PROFIL':
                         include('./Views/Profil.php');                    
                         break;
+                    case 'NEW_REPAS':
+                        include('./Views/repas.php');                    
+                        break;
                 }
             }
         }           
     ?>    
-
-    <?php include_once('./Views/addRepas.php') ?>
     
     <?php require_once('./Includes/footer.php') ?>
 </body>

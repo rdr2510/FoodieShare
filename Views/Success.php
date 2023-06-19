@@ -1,3 +1,13 @@
+<?php
+    require_once('./Modeles/sessions.php');
+    $sessions= new Sessions('./Datas/Sessions.json');
+    $user;
+    if (!$sessions->isActive()){
+        echo "<script type='text/javascript'>window.top.location='./index.php?menu=LOGIN';</script>"; 
+        exit;
+    }
+?>
+
 <div class="d-flex justify-content-center align-items-center" style="height: 80%; width: 100%">
     <div id="add-profil" class="d-flex justify-content-between flex-column mx-5">
 
@@ -11,7 +21,7 @@
         </div>
 
         <div class="d-flex justify-content-center w-100 mb-4">
-            <a type="button" class="btn btn-success btn-outline-light d-flex align-items-center" href="../index.php?menu=LOGIN"><span class="material-symbols-rounded" style="margin-right: 10px;">arrow_back</span>Retour</a>
+            <a type="button" class="btn btn-success btn-outline-light d-flex align-items-center" href=<?= $url?>><span class="material-symbols-rounded" style="margin-right: 10px;">arrow_back</span>Retour</a>
         </div>
     </div>
 </div>

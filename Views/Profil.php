@@ -63,7 +63,7 @@
             <img id="profil-image" class="d-none d-lg-flex" src="../assets/Images/about-us-hero-image-t.jpg" alt="" height="35%">
             <div id="profil-input" class="d-flex flex-column justify-content-center align-items-center bg-primary p-4">
                 <span class="text-white material-symbols-rounded m-0 p-0" style="font-size: 70px; margin-bottom: 15px;">account_circle</span>
-                <h3 class="fw-bold text-light" style="margin-bottom: 40px;">NOUVEAU UTILISATEUR</h3>
+                <h3 class="fw-bold text-light" style="margin-bottom: 40px;"><?=$action=='VIEW'?'UTILISATEUR':'NOUVEAU UTILISATEUR'?></h3>
                 <div class="input-group mb-3">
                     <span class="input-group-text material-symbols-rounded text-primary">badge</span>
                     <input id="input" type="text" class="form-control" placeholder="Nom" name="nom" <?=$action=='VIEW'?'value='.$nom:''?> <?=$action=='VIEW'?'disabled':''?> required>

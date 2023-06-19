@@ -1,3 +1,13 @@
+<?php
+    require_once('./Modeles/sessions.php');
+    $sessions= new Sessions('./Datas/Sessions.json');
+    $user;
+    if (!$sessions->isActive()){
+        echo "<script type='text/javascript'>window.top.location='./index.php?menu=LOGIN';</script>"; 
+        exit;
+    }
+?>
+
 <div class="d-flex justify-content-center align-items-center" style="height: 80%; width: 100%">
     <div id="add-profil" class="d-flex justify-content-between flex-column mx-5">
 
