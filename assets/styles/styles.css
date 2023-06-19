@@ -12,7 +12,7 @@ html, body{
     background-color: black;
     color: white;
 }
-#login, #add-profil{
+#login, #add-profil{ 
     -webkit-box-shadow: 30px 30px 27px 2px rgba(0,0,0,0.5);
     -moz-box-shadow: 30px 30px 27px 2px rgba(0,0,0,0.5);
     box-shadow: 30px 30px 27px 2px rgba(0,0,0,0.5);
@@ -28,6 +28,12 @@ html, body{
     -webkit-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.2);
     -moz-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.2);
     box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.2);
+}
+
+.plat{
+    -webkit-box-shadow: 15px 10px 15px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 15px 10px 15px 0px rgba(0,0,0,0.5);
+    box-shadow: 15px 10px 15px 0px rgba(0,0,0,0.5);
 }
 
 textarea{
@@ -67,13 +73,21 @@ textarea{
     #icon-login-failed{
         font-size: 80px;
     }
+    #container-list-repas{
+        height: 84%;
+    }
 }
 
 @media (max-width: 768px) { 
-
+    #container-list-repas{
+        height: 84%;
+    }
 }
 
 @media (max-width: 992px) { 
+    #container-list-repas{
+        height: 83%;
+    }
     #icon-login-failed{
         font-size: 50px;
     }

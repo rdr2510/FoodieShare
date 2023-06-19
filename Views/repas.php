@@ -63,10 +63,10 @@
 
 <div class="d-flex justify-content-center align-items-center" style="height: 100%; width: 100%">        
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="add-profil" class="d-flex justify-content-end position-relative flex-column mx-4" style="height: 450px; width:550px">
-            <img id="profil-image" class="d-none d-lg-flex" src="../assets/Images/47492_1.png" alt="" height="35%" width="auto">
-            <div id="profil-input" class="d-flex flex-column justify-content-center align-items-center bg-primary p-4">
+            <img id="profil-image" class="d-none d-lg-flex" src="../assets/Images/bandeau2.png" alt="" height="50%" width="auto">
+            <div id="profil-input" class="d-flex flex-column justify-content-center align-items-center bg-primary pt-1 p-4">
                 <span class="text-white material-symbols-rounded m-0 p-0" style="font-size: 70px; margin-bottom: 15px;">restaurant_menu</span>
-                <h3 class="fw-bold text-light" style="margin-bottom: 40px;">NOUVEAU PLAT</h3>
+                <h3 class="fw-bold text-light" style="margin-bottom: 35px;">NOUVEAU PLAT</h3>
                 <div id="input" class="input-group mb-3 rounded">
                     <span class="input-group-text material-symbols-rounded text-primary">lunch_dining</span>
                     <input type="text" class="form-control" placeholder="Nom du plat" name="nom" required>

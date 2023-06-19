@@ -47,22 +47,22 @@
             <div class="d-flex align-items-center">            
                 <h5 class="fw-bold d-flex align-items-center text-white m-0"><span class="material-symbols-rounded text-white" style="margin-right: 5px">fastfood</span>LISTE DES REPAS</h5>';
                 if($filtreRecherche){
-                    echo '<div class="text-white d-flex align-items-center"><span class="material-symbols-rounded mx-1 text-black">arrow_right_alt</span><span class="mx-1">Recherche par</span>"<span class="text-warning">'.$recherche.'<span>"</div>';
+                    echo '<div class="text-white d-flex align-items-center"><span class="material-symbols-rounded mx-1 text-black fw-bold">arrow_right_alt</span><span class="mx-1">Recherche par</span>"<span class="text-warning">'.$recherche.'<span>"</div>';
                 }
                 if($filtrePrix){
-                    echo '<div class="text-white d-flex align-items-center"><span class="material-symbols-rounded mx-1 text-black">arrow_right_alt</span><span class="mx-1">Prix entre</span>(<span class="text-warning">'.$prixMin.' et '.$prixMax.'</span>) $</div>';
+                    echo '<div class="text-white d-flex align-items-center"><span class="material-symbols-rounded mx-1 text-black fw-bold">arrow_right_alt</span><span class="mx-1">Prix entre</span>(<span class="text-warning">'.$prixMin.' et '.$prixMax.'</span>) $</div>';
                 }
                 if($filtreDistance){
-                    echo '<div class="text-white d-flex align-items-center"><span class="material-symbols-rounded mx-1 text-black">arrow_right_alt</span><span class="mx-1">Rayon entre</span>(<span class="text-warning">'.$distanceMin.' et '.$distanceMax.'</span>) Km</div>';
+                    echo '<div class="text-white d-flex align-items-center"><span class="material-symbols-rounded mx-1 text-black fw-bold">arrow_right_alt</span><span class="mx-1">Rayon entre</span>(<span class="text-warning">'.$distanceMin.' et '.$distanceMax.'</span>) Km</div>';
                 }
             echo '</div>';
         echo '<h5 class="text-white m-0 badge bg-warning fs-6" style="padding-right: 5px;"><span class="text-danger fw-bold">'.count($listRepas).'</span> DISPONIBLE(S)</h5>
           </div>
           <div class="container-fluid" style="height: 100%";>
-            <div class="d-flex flex-wrap justify-content-center overflow-y-scroll" style="height: 100%";>';
+            <div id="container-list-repas" class="d-flex flex-wrap justify-content-center overflow-y-scroll">';
                 foreach ($listRepas as $diner){ ?>
-                    <div id=plat-<?=$diner->id?>  class="card border-2 border-primary mb-3 mx-2" style="width: 18rem; height: 13rem">
-                        <div class="card-header badge bg-primary fs-5 d-flex align-items-center rounded-top-1"><span class="material-symbols-rounded text-warning">lunch_dining</span>&nbsp;<?=$diner->nom?></div>
+                    <div id=plat-<?=$diner->id?>  class="plat card border-2 border-primary m-4 mx-4" style="width: 18rem; height: 13rem">
+                        <div class="card-header badge bg-primary fs-5 d-flex align-items-center rounded-top-1 py-0"><span class="material-symbols-rounded text-warning">lunch_dining</span>&nbsp;<span class="text-truncate py-3"><?=$diner->nom?></span></div>
                         <div class="card-body pb-0 d-flex flex-column pt-0">
                             <div style="height: 100%;">
                                 <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;"><?=$diner->description?></p>
