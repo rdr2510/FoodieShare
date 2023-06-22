@@ -1,0 +1,126 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+.nav-link:hover, .dropdown-item:hover{
+    background-color: black;
+}
+#user-connection>button:hover{
+    background-color: black;
+    color: white;
+}
+#login, #add-profil{ 
+    -webkit-box-shadow: 30px 30px 27px 2px rgba(0,0,0,0.5);
+    -moz-box-shadow: 30px 30px 27px 2px rgba(0,0,0,0.5);
+    box-shadow: 30px 30px 27px 2px rgba(0,0,0,0.5);
+    border-radius: 20px;
+}
+
+#title-login-failed{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#input{
+    -webkit-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.2);
+    box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.2);
+}
+
+.plat{
+    -webkit-box-shadow: 15px 10px 15px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 15px 10px 15px 0px rgba(0,0,0,0.5);
+    box-shadow: 15px 10px 15px 0px rgba(0,0,0,0.5);
+}
+
+textarea{
+    resize:none;
+}
+
+@media (min-width: 992px) {
+    #login-left{
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    #login-right{
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    #profil-input{
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    #profil-image{
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+    #filter-label{
+       border: none;
+    }
+    #filter-input-min{
+        border-top: none;
+        border-bottom: none;
+        border-radius: 0;
+    }
+    #filter-input-max{
+        border: none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    #icon-login-failed{
+        font-size: 80px;
+    }
+    #container-list-repas{
+        height: 84%;
+    }
+}
+
+@media (max-width: 768px) { 
+    #container-list-repas{
+        height: 84%;
+    }
+}
+
+@media (max-width: 992px) { 
+    #container-list-repas{
+        height: 83%;
+    }
+    #icon-login-failed{
+        font-size: 50px;
+    }
+    #login-right{
+        border-radius: 20px;
+    }
+    #user-connection{
+        margin-bottom: 15px;
+    }
+    #profil-input{
+        border-radius: 20px;
+    }
+    #filter-label{
+        border: none;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    #filter-input-min{
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+    }
+    #filter-input-max{
+        border: none;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+    }
+}
+
+#carouselExampleFade{
+    height: 300px;
+    margin: 15px;
+}
+.carousel-item>img{
+    height: 300px;
+}
