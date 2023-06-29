@@ -19,34 +19,28 @@
         $data= trim($data);
         $data= stripslashes($data);
         $data= htmlspecialchars($data);
+        $data= filter_var($data, FILTER_SANITIZE_URL);
         return $data;
     }
 
     
-    $errorRating= false;
-    $errorCommentaire= false;
-    $rating= 0;
-    $commentaire= '';
+    $errorUrl= false;
+    $urlPhoto= '';
     $action= '';
-    if (isset($platId) && isset($_POST['rating']) && isset($_POST['commentaire']) && isset($_POST['action'])){
+    if (isset($platId) && isset($_POST['urlPhoto']) && isset($_POST['action'])){
         $action= $_POST['action'];
-        $rating= $_POST['rating'];
-        if ((int)$rating === 0){
-            $errorRating= true;
+        
+        $urlPhoto= $_POST['urlPhoto'];
+        if (empty($urlPhoto)){
+            $errorUrl= true;
         } else {
-            $rating= (int)test_input($rating);
+            $urlPhoto= test_input($urlPhoto);
         }
-        $commentaire= $_POST['commentaire'];
-        if (empty($commentaire)){
-            $errorCommentaire= true;
-        } else {
-            $commentaire= test_input($commentaire);
-        }
-        if ($errorRating==false && $errorCommentaire==false && $errorUserId==false && $action=='ADD'){
-            require_once('./Modeles/avis.php');
-            $avis= new Avis('./Datas/Avis.json');
-            $avis->add($user->id, $platId, $rating, $commentaire);
-            echo "<script type='text/javascript'>window.top.location='./index.php?menu=ADD_AVIS_SUCCESS&platId=".$platId."';</script>"; 
+        if ($errorUrl==false && $action=='ADD'){
+            require_once('./Modeles/photos.php');
+            $photos= new Photos('./Datas/Photos.json');
+            $photos->add($platId, $user->id, $urlPhoto);
+            echo "<script type='text/javascript'>window.top.location='./index.php?menu=ADD_PHOTO_SUCCESS&platId=".$platId."';</script>"; 
             exit;
         }
     } else if (isset($_POST['action'])){
@@ -57,10 +51,10 @@
 <div class="d-flex justify-content-center align-items-center" style="height: 100%; width: 100%">        
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="add-profil" class="d-flex justify-content-end position-relative flex-column mx-4" style="height: 450px; width:550px">
             <div class="border border-primary border-2 d-flex align-items-end justify-content-between" id= "title-login-failed">
-                <span class="material-symbols-rounded ms-4 mt-2" style="font-size: 125px">3p</span>
+                <span class="material-symbols-rounded ms-4 mt-2" style="font-size: 125px">share_reviews</span>
                 <div class="d-flex flex-column justify-content-center me-4">
                     <span class="material-symbols-rounded m-0 p-0 text-center text-primary" style="font-size: 70px">add_comment</span>
-                    <h3 class="fw-bold text-primary">NOUVEAU AVIS</h3>
+                    <h3 class="fw-bold text-primary">NOUVELLE PHOTO</h3>
                 </div>
             </div>        
     
@@ -86,40 +80,22 @@
                     </div>
                 </div>
 
-                <div class="input-group rounded mb-3">
+                <div class="input-group rounded mb-2 mt-2">
                     <div id="input" class="input-group rounded">
-                        <span class="input-group-text material-symbols-rounded text-primary">hotel_class</span>
-                        <select class="form-select" id="notes" name="rating" required>
-                            <option value="0" selected>Aucun note</option>
-                            <option value="1">Note 1</option>
-                            <option value="2">Note 2</option>
-                            <option value="3">Note 3</option>
-                            <option value="4">Note 4</option>
-                            <option value="5">Note 5</option>
-                        </select>
-                        <div class="input-group-text">
-                            <span class="material-symbols-rounded text-secondary fw-bold" id="note1">star</span>
-                            <span class="material-symbols-rounded text-secondary fw-bold" id="note2">star</span>
-                            <span class="material-symbols-rounded text-secondary fw-bold" id="note3">star</span>
-                            <span class="material-symbols-rounded text-secondary fw-bold" id="note4">star</span>
-                            <span class="material-symbols-rounded text-secondary fw-bold" id="note5">star</span>
-                        </div>
+                        <span class="input-group-text material-symbols-rounded text-primary">image</span>
+                        <input type="text" class="form-control" placeholder="Url image ou photo" name="urlPhoto" required>
+                        <span class="input-group-text material-symbols-rounded text-primary">link</span>
                     </div>
-                    <?php if ($errorRating==true){?>
-                        <div class="text-end text-danger fw-bold w-100">S'il vous plait, Choisisez une note...</div>
+                    <?php if ($errorUrl==true){?>
+                        <div class="text-end text-danger fw-bold w-100">Mauvaise url, url non valide...</div>
                     <?php } ?>
-                </div>
-
-                <div id="input" class="input-group rounded border-primary">
-                    <span class="input-group-text material-symbols-rounded text-primary">post</span>
-                    <textarea class="form-control" name="commentaire" rows="3" placeholder="Commentaire" required></textarea>
                 </div>
 
                 <div class="d-flex w-100 justify-content-evenly mt-4">
                     <input type="hidden" name="action" value="ADD">
                     <input type="hidden" name="platId" value=<?= $platId ?>>
                     <a type="button" class="btn btn-secondary btn-outline-light d-flex align-items-center" href="./index?menu=LIST_REPAS"><span class="material-symbols-rounded" style="margin-right: 10px;">close</span>Annuler</a>
-                    <button name="menu" value="NEW_AVIS" type="submit" class="btn btn-primary btn-outline-light d-flex align-items-center"><span class="material-symbols-rounded" style="margin-right: 10px;">cloud_upload</span>Enregistrer</button>
+                    <button name="menu" value="NEW_PHOTO" type="submit" class="btn btn-primary btn-outline-light d-flex align-items-center"><span class="material-symbols-rounded" style="margin-right: 10px;">cloud_upload</span>Enregistrer</button>
                 </div>
             </div>
     </form>

@@ -17,12 +17,15 @@
 
         require_once('./Modeles/users.php');
         $users= new Users('./Datas/Users.json');
+
+        require_once('./Modeles/photos.php');
+        $photos= new Photos('./Datas/Photos.json');
     }
 ?>
 
 <div class="container-fluid" style="height: 100%";>        
     
-        <div id=plat-<?=$diner->id?>  class="plat card border-2 border-primary m-4 mx-4">
+        <div id=plat-<?=$diner->id?> class="plat card border-2 border-primary m-4 mx-4" style="height: 85%;">
             <div class="card-header badge bg-primary fs-5 d-flex align-items-center rounded-top-1 py-0"><span class="material-symbols-rounded text-warning">lunch_dining</span>&nbsp;<span class="text-truncate py-3"><?=$diner->nom?></span></div>
             <div class="border-primary" style="border: 2px solid; border-left-width: 0; border-right-width: 0; border-top-width: 0;">
                 <div class="card-body pb-0 d-flex flex-column flex-lg-row pt-0">
@@ -45,12 +48,13 @@
                           if (!$avis->isUserComment($user->id, $platId)){?>
                             <div class="d-flex align-items-center justify-content-center p-2"><a href=<?="../index.php?menu=NEW_AVIS&platId=".$platId?> type="button" class="btn btn-primary d-flex align-items-center justify-content-center"><span class="material-symbols-rounded p-0 me-2 fs-3 d-flex align-items-center">add_comment</span>Ajouter Commentaire</a></div>
                     <?php } else { ?>
-                            <div class="d-flex align-items-center justify-content-center p-2"><a href=<?="../index.php?menu=NEW_AVIS&platId=".$platId?> type="button" class="btn btn-primary d-flex align-items-center justify-content-center"><span class="material-symbols-rounded p-0 me-2 fs-3 d-flex align-items-center">share_reviews</span>Partager Photo</a></div>
+                            <div class="d-flex align-items-center justify-content-center p-2"><a href=<?="../index.php?menu=NEW_PHOTO&platId=".$platId?> type="button" class="btn btn-primary d-flex align-items-center justify-content-center"><span class="material-symbols-rounded p-0 me-2 fs-3 d-flex align-items-center">share_reviews</span>Partager Photo</a></div>
                     <?php }
                     } ?>
                 </div>
             </div>
             
+            <div style="overflow-y: auto;">
             <?php foreach($listAvis as $comm){?>
             <div class="m-4">
                 <div class="d-flex justify-content-between">
@@ -125,7 +129,16 @@
                 <div id="avis" class="bg-primary ms-4 ps-4 p-2 text-white">
                     <?= $comm->commentaire; ?>
                 </div>
+                <div class="d-flex m-2 ms-4 me-4" style="overflow-x: auto">
+                        <?php  
+                            $listPhotos= $photos->getAll($platId, $user->id);
+                            foreach($listPhotos as $photo){
+                                echo '<img class="ms-2 me-2 mb-2" src="'.$photo->urlPhoto.'" width="300px">';
+                            }
+                        ?>
+                    </div>
             </div>
             <?php } ?>
+            </div>
         </div>
 </div>

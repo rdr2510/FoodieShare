@@ -94,10 +94,28 @@
                         }
                         include('./Views/avisUser.php');                    
                         break;
+                    case 'NEW_PHOTO':
+                            if (isset($_GET['platId'])){
+                                $platId= $_GET['platId'];
+                            }
+                            include('./Views/photoUser.php');                    
+                            break;
                     case 'ADD_AVIS_SUCCESS':
+                        if (isset($_GET['platId'])){
+                            $platId= $_GET['platId'];
+                        }
                         $titre= 'Ajout d\'un avis d\'utilisateur avec succées.';
                         $resultat= 'Veuillez rétourner sur la liste.';
-                        $url= "../index.php?menu=LIST_REPAS";
+                        $url= "../index.php?menu=DETAIL_REPAS&platId=".$platId;
+                        include('./Views/Success.php');                    
+                        break;
+                    case 'ADD_PHOTO_SUCCESS':
+                        if (isset($_GET['platId'])){
+                            $platId= $_GET['platId'];
+                        }
+                        $titre= 'Ajout d\'une photo avec succées.';
+                        $resultat= 'Veuillez rétourner sur la liste';
+                        $url= "../index.php?menu=DETAIL_REPAS&platId=".$platId;
                         include('./Views/Success.php');                    
                         break;
                 } 
@@ -124,6 +142,12 @@
                             $platId= $_POST['platId'];
                         }
                         include('./Views/avisUser.php');                    
+                        break;
+                    case 'NEW_PHOTO':
+                        if (isset($_POST['platId'])){
+                            $platId= $_POST['platId'];
+                        }
+                        include('./Views/photoUser.php');                    
                         break;
                 }
             }
