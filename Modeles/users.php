@@ -92,7 +92,7 @@
             $user= array_filter($this->listUser, function($user) use ($username, $password){
                 return ($user->username == $username && $user->password == $password);
             });
-            $user= array_values($user)[0];
+            $user= array_values(array_filter($user))[0];
             if ($user){
                 return $user->id;
             } else {

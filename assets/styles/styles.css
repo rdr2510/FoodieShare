@@ -40,6 +40,13 @@ textarea{
     resize:none;
 }
 
+#avis{
+    border-top-left-radius: 0;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
 @media (min-width: 992px) {
     #login-left{
         border-top-left-radius: 20px;

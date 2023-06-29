@@ -29,6 +29,9 @@
             file_put_contents($this->jsonFile, $j);
         }
 
+        /**
+         * Suppression de tout les contenus dans le fichier
+         */
         protected function clearContent(){
             file_put_contents($this->jsonFile, '');
         }

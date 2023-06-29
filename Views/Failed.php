@@ -2,7 +2,7 @@
     require_once('./Modeles/sessions.php');
     $sessions= new Sessions('./Datas/Sessions.json');
     $user;
-    if (!$sessions->isActive()){
+    if (!$sessions->isActive() && $menu=='LOGIN_FAILED'){
         echo "<script type='text/javascript'>window.top.location='./index.php?menu=LOGIN';</script>"; 
         exit;
     }
