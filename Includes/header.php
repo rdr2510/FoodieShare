@@ -17,7 +17,7 @@
 
 <nav class="navbar navbar-expand-lg sticky-top bg-primary p-0">
     <div class="container-fluid">
-        <a class="navbar-brand text-light fw-bold" href="#">
+        <a class="navbar-brand text-light fw-bold" href="../index.php?menu=LIST_REPAS">
             <div class="d-flex">
                 <div class="bg-black d-flex align-items-center px-1 fs-1 rounded-start">
                     <span class="fs-1 material-symbols-rounded text-warning">restaurant_menu</span>FOODIE
@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse my-0" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link text-light d-flex align-items-centrer px-4" aria-current="page" href="#"><span class="material-symbols-rounded" style="margin-right: 8px">home</span>ACCUEIL</a>
+                    <a class="nav-link text-light d-flex align-items-centrer px-4" aria-current="page" href="../index.php?menu=LIST_REPAS"><span class="material-symbols-rounded" style="margin-right: 8px">home</span>ACCUEIL</a>
                 </li>
                 <div class="dropdown">
                     <a class="nav-link text-light dropdown-toggle d-flex align-items-center px-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -59,7 +59,7 @@
                         <?= $user->prenom . ' ' . strtoupper($user->nom) ?><span class="px-2 material-symbols-rounded fs-2">account_circle</span>
                     </a>
                     <ul class="dropdown-menu bg-primary">
-                        <li><a class="dropdown-item text-light d-flex align-items-center" href=<?= './index?menu=VIEW_PROFIL&userId='.$user->id?>><span class="material-symbols-rounded" style="margin-right: 10px">account_box</span>Profil</a></li>
+                        <li><a class="dropdown-item text-light d-flex align-items-center" href=<?= './index.php?menu=VIEW_PROFIL&userId='.$user->id?>><span class="material-symbols-rounded" style="margin-right: 10px">account_box</span>Profil</a></li>
                         <li><hr class="dropdown-divider text-light"></li>
                         <li><button type="button" class="dropdown-item text-light d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#logout"><span class="material-symbols-rounded" style="margin-right: 10px">exit_to_app</span>DéConnecter</button></li>
                     </ul>
@@ -81,7 +81,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary d-flex align-items-center" data-bs-dismiss="modal"><span class="material-symbols-rounded" style="margin-right: 5px;">cancel</span>Annuler</button>
-                <a type="button" class="btn btn-primary d-flex align-items-center" href="./index?menu=LIST_REPAS&action=DECONNECTER">DéConnecter<span class="material-symbols-rounded" style="margin-left: 5px;">output</span></a>
+                <a type="button" class="btn btn-primary d-flex align-items-center" href="./index.php?menu=LIST_REPAS&action=DECONNECTER">DéConnecter<span class="material-symbols-rounded" style="margin-left: 5px;">output</span></a>
             </div>
         </div>
     </div>

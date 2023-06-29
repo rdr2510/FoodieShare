@@ -118,7 +118,7 @@
                 <div class="d-flex w-100 justify-content-evenly mt-4">
                     <input type="hidden" name="action" value="ADD">
                     <input type="hidden" name="platId" value=<?= $platId ?>>
-                    <a type="button" class="btn btn-secondary btn-outline-light d-flex align-items-center" href="./index?menu=LIST_REPAS"><span class="material-symbols-rounded" style="margin-right: 10px;">close</span>Annuler</a>
+                    <a type="button" class="btn btn-secondary btn-outline-light d-flex align-items-center" href="./index.php?menu=LIST_REPAS"><span class="material-symbols-rounded" style="margin-right: 10px;">close</span>Annuler</a>
                     <button name="menu" value="NEW_AVIS" type="submit" class="btn btn-primary btn-outline-light d-flex align-items-center"><span class="material-symbols-rounded" style="margin-right: 10px;">cloud_upload</span>Enregistrer</button>
                 </div>
             </div>

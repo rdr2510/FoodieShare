@@ -84,7 +84,7 @@
                         </div>
                         <div class="d-flex align-items-center justify-content-between bg-primary w-100" style="padding-top:2px">
                             <?= isset($user)?'<button data-bs-toggle="modal" data-bs-target=#delete-repas-'.$diner->id.' class="btn btn-danger p-0 m-0 px-2 material-symbols-rounded d-flex align-items-center" style="height:100%;">delete_forever</button>':'';?>
-                            <a href=<?= './index?menu=DETAIL_REPAS&platId='.$diner->id?> class="btn btn-primary d-flex align-items-center justify-content-end">Detail<span class="material-symbols-rounded">read_more</span></a>
+                            <a href=<?= './index.php?menu=DETAIL_REPAS&platId='.$diner->id?> class="btn btn-primary d-flex align-items-center justify-content-end">Detail<span class="material-symbols-rounded">read_more</span></a>
                         </div>
                     </div>
                     
@@ -101,7 +101,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary d-flex align-items-center" data-bs-dismiss="modal"><span class="material-symbols-rounded" style="margin-right: 5px;">cancel</span>Annuler</button>
-                                        <a type="button" class="btn btn-danger d-flex align-items-center" href=<?='./index?menu=LIST_REPAS&action=SUPPRIMER&platId='.$diner->id?>>Supprimer<span class="material-symbols-rounded" style="margin-left: 5px;">delete_forever</span></a>
+                                        <a type="button" class="btn btn-danger d-flex align-items-center" href=<?='./index.php?menu=LIST_REPAS&action=SUPPRIMER&platId='.$diner->id?>>Supprimer<span class="material-symbols-rounded" style="margin-left: 5px;">delete_forever</span></a>
                                     </div>
                                 </div>
                             </div>

@@ -82,7 +82,7 @@
                 </div>
                 <div class="d-flex justify-content-evenly w-100" style="margin-top: 35px;">
                     <input type="hidden" name="action" value="ADD">
-                    <a type="button" class="btn btn-secondary btn-outline-light d-flex align-items-center" href="./index?menu=LIST_REPAS"><span class="material-symbols-rounded" style="margin-right: 10px;">close</span><?=$action=='ADD'?'Annuler':'Fermer'?></a>
+                    <a type="button" class="btn btn-secondary btn-outline-light d-flex align-items-center" href="./index.php?menu=LIST_REPAS"><span class="material-symbols-rounded" style="margin-right: 10px;">close</span><?=$action=='ADD'?'Annuler':'Fermer'?></a>
                     <?= $action=='ADD'?'<button name="menu" value="NEW_PROFIL" type="submit" class="btn btn-primary btn-outline-light d-flex align-items-center"><span class="material-symbols-rounded" style="margin-right: 10px;">cloud_upload</span>Enregistrer</button>':''?>
                 </div>
             </div>
