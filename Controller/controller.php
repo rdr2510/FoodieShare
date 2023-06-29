@@ -5,6 +5,13 @@
                     case 'LOGIN':
                         include('./Views/login.php');                    
                         break;
+                    case 'LOGIN_FAILED':
+                        $titre= 'Oops! Échec de la connexion.';
+                        $description= 'Erreur d\'authentification, votre nom d\'utilisateur et/ou mot de passe est incorrect.';
+                        $resultat= 'Veuillez réessayer s\'il vous plaît...';
+                        $menu= 'LOGIN_FALIED';
+                        include('./Views/Failed.php');                              
+                        break;
                     case 'LIST_REPAS':
                         if (isset($_GET['action'])){
                             $action= $_GET['action'];
@@ -33,6 +40,12 @@
                         
                         include('./Views/listRepas.php');                    
                         break;
+                    case 'DETAIL_REPAS':
+                        if (isset($_GET['platId'])){
+                            $platId= $_GET['platId'];
+                        }
+                        include('./Views/detailRepas.php');                    
+                        break;
                     case 'NEW_REPAS':
                         include('./Views/repas.php');                    
                         break;
@@ -51,12 +64,6 @@
                     case 'NEW_PROFIL':
                         $_POST['action']= 'ADD';
                         include('./Views/Profil.php');                    
-                        break;
-                    case 'LOGIN_FAILED':
-                        $titre= 'Oops! Échec de la connexion.';
-                        $description= 'Erreur d\'authentification, votre nom d\'utilisateur et/ou mot de passe est incorrect.';
-                        $resultat= 'Veuillez réessayer s\'il vous plaît...';
-                        include('./Views/Failed.php');                              
                         break;
                     case 'VIEW_PROFIL':
                         require_once('./Modeles/users.php');
@@ -81,7 +88,21 @@
                         $resultat= 'Veuillez réessayer s\'il vous plaît...';
                         include('./Views/Failed.php');                    
                         break;
-                }
+                    case 'NEW_AVIS':
+                        if (isset($_GET['platId'])){
+                            $platId= $_GET['platId'];
+                        }
+                        include('./Views/avisUser.php');                    
+                        break;
+                    case 'ADD_AVIS_SUCCESS':
+                        $titre= 'Ajout d\'un avis d\'utilisateur avec succées.';
+                        $resultat= 'Veuillez rétourner sur la liste.';
+                        $url= "../index.php?menu=LIST_REPAS";
+                        include('./Views/Success.php');                    
+                        break;
+                } 
+            } else {
+                include('./Views/listRepas.php');
             }
         } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST['menu'])){
@@ -98,7 +119,13 @@
                     case 'NEW_REPAS':
                         include('./Views/repas.php');                    
                         break;
+                    case 'NEW_AVIS':
+                        if (isset($_POST['platId'])){
+                            $platId= $_POST['platId'];
+                        }
+                        include('./Views/avisUser.php');                    
+                        break;
                 }
             }
-        }           
+        }       
     ?>    

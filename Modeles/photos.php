@@ -28,13 +28,14 @@
         /**
          * lister tout les photos postés par les utilisateurs
          * @param {int} platId - identifiant unique du plat
+         * @param {int} userId - identifiant unique de l'utilisateur
          * @return {Array Associative}
          */
-        public function getAll(int $platId){
+        public function getAll(int $platId, int $userId){
             $this->listPhoto= $this->loadFile();
             $listPicture= [];
             for ($i=0; $i<count($this->listPhoto); ++$i){
-                if ($this->listPhoto[$i]->platId == $platId){
+                if ($this->listPhoto[$i]->platId == $platId && $this->listPhoto[$i]->userId == $userId){
                     array_push($listPicture, $this->listPhoto[$i]);
                 }
             }
